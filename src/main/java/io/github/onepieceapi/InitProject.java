@@ -2,6 +2,7 @@ package io.github.onepieceapi;
 
 import org.springframework.stereotype.Service;
 
+import io.github.onepieceapi.constants.Urls;
 import io.github.onepieceapi.model.Character;
 import io.github.onepieceapi.repositories.CharacterRepository;
 import jakarta.annotation.PostConstruct;
@@ -17,7 +18,15 @@ public class InitProject {
     @PostConstruct
     public void init() {
         log.info("Project initialized");
-        var character = Character.builder().surname("Monkey").name("D. Luffy").build();
-        characterRepository.save(character);
+        Character luffy = new Character();
+        luffy.setSurname("Monkey");
+        luffy.setName("D. Luffy");
+
+        Character zoro = new Character();
+        zoro.setSurname("Roronoa");
+        zoro.setName("Zoro");
+
+        characterRepository.save(luffy);
+        characterRepository.save(zoro);
     }
 }

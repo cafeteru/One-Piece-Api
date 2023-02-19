@@ -28,4 +28,5 @@ public class Character {
     private String name;
     private String surname;
     private String alias;
+    private int age;
 }
